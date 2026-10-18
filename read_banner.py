@@ -34,11 +34,11 @@ for row in range(lines):
         print("     ", end=" ")
 print()
 
-
 print("=" * 30)
 print("WELCOME USER WRITE ANYTHING")
-user = input("Enter something: ")
 print("=" * 30)
+
+# Load letters
 letters = {}
 
 with open("letter.txt", "r") as file:
@@ -52,15 +52,17 @@ alphabet = "ABCDEFGH"
 for i in range(len(blocks)):
     letters[alphabet[i]] = blocks[i]
 
-    word = input("Type a word: ").upper
+# Ask for word — OUTSIDE the loop, no indent
+word = input("Type a word: ").upper()
 
-    lines = 7
+# Print banner — no indent on these lines
+lines = 7
 
-    for row in range(lines):
-        for letter in word:
-            if letter in letters:
-                block_lines = letters[letter].split("\n")
-                print(block_lines[row], end="  ")
-            else:
-                print("    ", end="  ")
-            print()
+for row in range(lines):
+    for letter in word:
+        if letter in letters:
+            block_lines = letters[letter].split("\n")
+            print(block_lines[row], end="  ")
+        else:
+            print("    ", end="  ")
+    print()
